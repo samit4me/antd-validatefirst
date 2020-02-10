@@ -1,3 +1,30 @@
+Issues with `validateFirst`:
+
+- `Warning: React does not recognize the `validateFirst` prop on a DOM element`
+- `onFinish` is NOT called when rules and validator both pass validation.
+- `onFinish` is called when rules pass, but validator fails (e.g. `Promise.reject`).
+
+Steps to reproduce issue with validateFirst:
+
+- `yarn`
+- `yarn start`
+
+React warning:
+- Open console in browser to see Warning.
+
+`onFinish` not called:
+- Enter username "test" for both forms.
+- Click Submit on "form 1" - "Success" output to console.
+- Click Submit on "form 2" - no output to console (it should).
+
+`onFinish` called:
+- Enter username "ant" for both forms.
+- Click Submit on "form 1" - "Failed" output to console.
+- Click Submit on "form 2" - "Success" output to console (should be Failed).
+
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
